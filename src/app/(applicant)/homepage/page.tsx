@@ -1,11 +1,9 @@
-import TopBanner from "./components/TopBanner";
+import MainArea from "./components/MainArea";
 
 export default function page() {
   return (
     <>
-      <div className="container mt-8">
-        <TopBanner />
-      </div>
+      <MainArea />
     </>
   );
 }

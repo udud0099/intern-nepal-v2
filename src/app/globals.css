@@ -119,10 +119,22 @@
   body {
     @apply bg-background text-foreground;
   }
+  hr {
+    @apply   border border-[#E2E8F0] my-4;
+  }
 }
 
 @layer components {
   .container {
     @apply max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-28;
   }
+  .BorderBgShadow {
+    @apply border border-[#E2E8F0] rounded-[12px] shadow-lg shadow-gray-100 bg-white;
   }
+  .BadgeBox {
+    @apply flex w-full flex-wrap gap-2;
+  }
+  .mainh1 {
+    @apply text-base font-semibold;
+  }
+}
