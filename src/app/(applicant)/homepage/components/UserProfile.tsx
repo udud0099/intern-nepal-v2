@@ -1,22 +1,38 @@
 "use client";
+import { ReactNode } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { FiEdit2 } from "react-icons/fi";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { GoHome } from "react-icons/go";
+import { TbEdit } from "react-icons/tb";
+import { IoDocumentTextOutline } from "react-icons/io5";
+import { LiaChalkboardTeacherSolid } from "react-icons/lia";
+import { FaRegUser } from "react-icons/fa6";
+import { IoSettingsOutline } from "react-icons/io5";
 
 const navItems = [
-  { label: "Home", url: "/homepage" },
-  { label: "Create a Blogs", url: "/homepage/CreateaBlogs" },
-  { label: "My Application", url: "/homepage/MyApplication" },
-  { label: "Applied Training", url: "/homepage/AppliedTraining" },
-  { label: "My Profiles", url: "/homepage/MyProfiles" },
-  { label: "Setting", url: "/homepage/Setting" },
+  { label: "Home", url: "/homepage", icon: <GoHome /> },
+  { label: "Create a Blogs", url: "/homepage/CreateaBlogs", icon: <TbEdit /> },
+  {
+    label: "My Application",
+    url: "/homepage/MyApplication",
+    icon: <IoDocumentTextOutline />,
+  },
+  {
+    label: "Applied Training",
+    url: "/homepage/AppliedTraining",
+    icon: <LiaChalkboardTeacherSolid />,
+  },
+  { label: "My Profiles", url: "/homepage/MyProfiles", icon: <FaRegUser /> },
+  { label: "Setting", url: "/homepage/Setting", icon: <IoSettingsOutline /> },
 ];
 
 type NavItem = {
   label: string;
   url: string;
+  icon: ReactNode;
 };
 
 export default function UserProfile() {
@@ -42,7 +58,7 @@ export default function UserProfile() {
             className="col-span-1"
           />
           <div className="col-span-2">
-            <h1 className="mainh1">Rajesh Maharjan</h1>
+            <h1 className="mainh2">Rajesh Maharjan</h1>
             <p className="text-sm my-1">rajesh@gmail.com</p>
             <div className="BadgeBox">
               <Badge variant="destructive">Candidates</Badge>
@@ -58,34 +74,21 @@ export default function UserProfile() {
           <Badge variant="secondary">UIUX design</Badge>
           <Badge variant="secondary">Graphic Design</Badge>
         </div>
-
-        <div>
-          <nav className="w-full pt-3  flex justify-between      ">
-            {/* Left: Logo + Navigation */}
-            <div className="flex    w-full  gap-0.5  md:h-auto h-[40px] sm:h-[50px]   overflow-x-auto overflow-y-hidden no-scrollbar flex-row md:flex-col">
-              <ul>
-                {navItems.map((item: NavItem, index: number) => (
-                  <li key={index}>
-                    <Link href={item.url} className={getLinkClasses(item.url)}>
-                      {/* <RiBox1Line className="min-w-4 w-4 h-4" /> */}
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </nav>
-        </div>
-
         <hr />
 
-        <br />
-        <br />
-        <br />
-        <h1>user profile</h1>
-        <h1>user profile</h1>
-        <h1>user profile</h1>
-        <h1>user profile</h1>
+        <nav className="w-full    flex justify-between      ">
+          {/* Left: Logo + Navigation */}
+          <ul className="flex    w-full  gap-1  md:h-auto h-[40px] sm:h-[50px]   overflow-x-auto overflow-y-hidden no-scrollbar flex-row md:flex-col">
+            {navItems.map((item: NavItem, index: number) => (
+              <li key={index}>
+                <Link href={item.url} className={getLinkClasses(item.url)}>
+                  {item.icon}
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </>
   );

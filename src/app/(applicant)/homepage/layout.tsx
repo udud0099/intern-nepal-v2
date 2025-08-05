@@ -12,7 +12,7 @@ export default function SpecialLayout({
         <TopBanner />
         <div className="grid grid-cols-4 gap-2  ">
           <SideNav />
-          {children}
+          <div className="col-span-3">{children}</div>
         </div>
       </div>
       {/* <section className=" flex gap-8   topRoundBorder     flex-col md:flex-row  ">
