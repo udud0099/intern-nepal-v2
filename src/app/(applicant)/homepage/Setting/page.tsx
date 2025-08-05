@@ -8,7 +8,7 @@ export default function page() {
       <div className="flex gap-4 flex-col ">
         <div className=" ">
           <h1 className="mainh1">Setting</h1>
-          <p className="text-xs text-[#475569]">
+          <p className="text-xs text-[#475569] mt-1">
             Home <span className="text-[#1E293B]"> / Setting</span>
           </p>
         </div>
@@ -39,8 +39,19 @@ export default function page() {
                 placeholder="*********************"
               />
             </div>
-            <Button>Save Password</Button>
+            <Button variant={"saveButon"}>Save Password</Button>
           </div>
+        </div>
+
+        <div className="BorderBgShadow  p-4 flex gap-4 items-center justify-between">
+          <div>
+            <h1 className="mainh1">Deactivate account</h1>
+            <p className="text-sm text-[#475569] mt-1">
+              Once your account is deactivated, the process cannot be reversed.
+              Please ensure your decision is final.
+            </p>
+          </div>
+            <Button variant={"deleteButon"}>Deactivate Account</Button>
         </div>
       </div>
     </>
